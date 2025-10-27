@@ -1,0 +1,41 @@
+﻿@model List<JadooTravel.Dtos.ReservationDtos.ResultReservationDto>
+
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <h3>Rezervasyon Listesi</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Ad Soyad</th>
+            <th>Telefon</th>
+            <th>Email</th>
+            <th>Not</th>
+            <th>Tur</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ReservationId</td>
+                <td>@item.NameSurname</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.Email</td>
+                <td>@item.Note</td>
+                <td>@item.DestinationCityCountry</td>
+                <td>
+                    <a href="/Reservation/DeleteReservation/@item.ReservationId" class="btn btn-danger">Sil</a>
+                </td>
+                <td>
+                    <a href="/Reservation/UpdateReservation/@item.ReservationId" class="btn btn-success">Güncelle</a>
+                </td>
+            </tr>
+        }
+    </table>
+   @*  <a href="/Reservation/CreateReservation" class="btn btn-info">Yeni Rezervasyon Ekle</a> *@
+</div>

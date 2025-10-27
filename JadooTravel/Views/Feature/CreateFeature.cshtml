@@ -1,0 +1,22 @@
+﻿@model JadooTravel.Dtos.FeatureDtos.CreateFeatureDto
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <h3>Yeni Öne Çıkan Ekle</h3>
+    <form method="post">
+        <input type="text" asp-for="Title" placeholder="Başlık Giriniz" class="form-control" />
+        <br />
+        <input type="text" asp-for="MainTitle" placeholder="Ana Başlık Giriniz" class="form-control" />
+        <br />
+        <textarea asp-for="Description" placeholder="Açıklama Giriniz" rows="5" class="form-control"></textarea>
+        <br />
+        <input type="text" asp-for="VideoUrl" placeholder="Video Url Giriniz" class="form-control" />
+        <br />
+        
+         <button class="btn btn-primary">Ekle</button>
+    </form>
+</div>

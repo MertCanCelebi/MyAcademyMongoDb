@@ -1,0 +1,50 @@
+﻿@{
+    var error = TempData["Error"] as string;
+    var city = TempData["City"] as string;
+    var resultsJson = TempData["Results"] as string;
+    List<string>? results = null;
+
+    if (!string.IsNullOrEmpty(resultsJson))
+    {
+        results = System.Text.Json.JsonSerializer.Deserialize<List<string>>(resultsJson);
+    }
+}
+
+<section class="pt-6 pb-6" style="background-color: #f9f9f9;">
+    <div class="container text-center">
+        <h2 class="mb-4 fw-bold">@_localization.Getkey("ArtificialIntelligenceCityExploration").Value</h2>
+        <p class="mb-4 text-muted">@_localization.Getkey("ListPopulerPlace").Value</p>
+
+        <form method="post" action="/AI/GetPlaces" class="mb-4">
+            <div class="input-group justify-content-center" style="max-width: 500px; margin: 0 auto;">
+                <input type="text" name="cityName" class="form-control form-control-lg text-center" placeholder="@_localization.Getkey("CityName").Value" required />
+                <button type="submit" class="btn btn-primary btn-lg ms-2">@_localization.Getkey("Search").Value</button>
+            </div>
+        </form>
+
+        @if (!string.IsNullOrEmpty(error))
+        {
+            <div class="alert alert-danger mt-4" style="max-width: 600px; margin: 0 auto;">
+                @error
+            </div>
+        }
+
+        @if (results != null)
+        {
+            <div class="mt-5 text-start" style="max-width: 700px; margin: 0 auto;">
+                <h4 class="text-center mb-4">
+                    🌍 @city şehrinde gezilecek yerler:
+                </h4>
+
+                <ul class="list-group list-group-flush">
+                    @foreach (var place in results)
+                    {
+                        <li class="list-group-item py-3">
+                            @place
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+</section>

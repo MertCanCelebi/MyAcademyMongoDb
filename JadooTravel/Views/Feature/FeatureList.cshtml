@@ -1,0 +1,34 @@
+﻿@model List<JadooTravel.Dtos.FeatureDtos.ResultFeatureDto>
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <h3>Öne Çıkan Alanlar</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Başlık</th>
+            <th>Ana Başlık</th>
+            <th>Açıklama</th>
+            <th>Video Url</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FatureId</td>
+                <td>@item.Title</td>
+                <td>@item.MainTitle</td>
+                <td>@item.Description</td>
+                <td>@item.VideoUrl</td>
+                <td><a href="/Feature/DeleteFeature/@item.FatureId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Feature/UpdateFeature/@item.FatureId" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Feature/CreateFeature" class="btn btn-info">Ekle</a>
+</div>

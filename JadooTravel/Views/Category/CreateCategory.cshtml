@@ -1,0 +1,19 @@
+﻿@model JadooTravel.Dtos.CategoryDtos.CreateCategoryDto
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <h3>Yeni Kategori Ekle</h3>
+    <form method="post">
+        <input type="text" asp-for="CategoryName" placeholder="Kategori Adı Giriniz" class="form-control" />
+        <br />
+        <input type="text" asp-for="Description" placeholder="Açıklama Giriniz" class="form-control" />
+        <br />
+        <input type="text" asp-for="IconUrl" placeholder="İkon Url Giriniz" class="form-control" />
+        <br />
+        <button class="btn btn-primary">Kategori Ekle</button>
+    </form>
+</div>

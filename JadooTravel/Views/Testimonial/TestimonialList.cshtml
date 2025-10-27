@@ -1,0 +1,34 @@
+﻿@model List<JadooTravel.Dtos.TestimonialDtos.ResultTestimonialDto>
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <h3>Referans Listesi</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Ad Soyad</th>
+            <th>Kullanıcı Başlık</th>
+            <th>Mesaj</th>
+            <th>Fotoğraf Linki</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.TestimonialId</td>
+                <td>@item.NameSurname</td>
+                <td>@item.UserTitle</td>
+                <td>@item.Message</td>
+                <td> <img class="rounded-circle fit-cover" src="@item.ImageUrl" height="65" width="65" /></td>
+                <td><a href="/Testimonial/DeleteTestimonial/@item.TestimonialId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Testimonial/UpdateTestimonial/@item.TestimonialId" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Testimonial/CreateTestimonial" class="btn btn-info">Ekle</a>
+</div>

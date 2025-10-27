@@ -1,0 +1,94 @@
+﻿@model JadooTravel.Dtos.ReservationDtos.CreateReservationDto
+<section id="booking">
+
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Sol Adım Bilgisi -->
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="mb-4 text-start">
+                    <h5 class="text-secondary fw-semibold">@_localization.Getkey("EasyandFastReservation").Value</h5>
+                    <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">@_localization.Getkey("3StepsReservation").Value</h3>
+                </div>
+
+                <!-- Adım 1 -->
+                <div class="d-flex align-items-start mb-4 p-3 bg-light rounded-4 shadow-sm">
+                    <div class="bg-primary me-3 p-3 rounded-3 d-flex align-items-center justify-content-center">
+                        <img src="/public/assets/img/steps/selection.svg" width="24" alt="steps" />
+                    </div>
+                    <div>
+                        <h5 class="text-secondary fw-bold fs-0">@_localization.Getkey("ChooseYourDestination").Value</h5>
+                        <p>@_localization.Getkey("Step1").Value</p>
+                    </div>
+                </div>
+
+                <!-- Adım 2 -->
+                <div class="d-flex align-items-start mb-4 p-3 bg-light rounded-4 shadow-sm">
+                    <div class="bg-danger me-3 p-3 rounded-3 d-flex align-items-center justify-content-center">
+                        <img src="/public/assets/img/steps/water-sport.svg" width="24" alt="steps" />
+                    </div>
+                    <div>
+                        <h5 class="text-secondary fw-bold fs-0">@_localization.Getkey("MakePayment").Value</h5>
+                        <p>@_localization.Getkey("Step2").Value</p>
+                    </div>
+                </div>
+
+                <!-- Adım 3 -->
+                <div class="d-flex align-items-start mb-4 p-3 bg-light rounded-4 shadow-sm">
+                    <div class="bg-info me-3 p-3 rounded-3 d-flex align-items-center justify-content-center">
+                        <img src="/public/assets/img/steps/taxi.svg" width="24" alt="steps" />
+                    </div>
+                    <div>
+                        <h5 class="text-secondary fw-bold fs-0">@_localization.Getkey("ArriveAirport").Value</h5>
+                        <p>@_localization.Getkey("Step3").Value</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sağ Form -->
+            <div class="col-lg-6 d-flex justify-content-center">
+                <div class="card border-0 shadow-lg rounded-4 w-100" style="max-width: 600px;">
+                    <div class="card-header bg-info text-white text-center rounded-top-4">
+                        <h5 class="mb-0 fw-bold text-white">@_localization.Getkey("ReservationForm").Value</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <form asp-controller="Reservation" asp-action="CreateReservation" method="post">
+                            <div class="mb-3">
+                                <input asp-for="NameSurname" class="form-control form-control-lg rounded-3 py-3" placeholder="@_localization.Getkey("NameSurname").Value" required />
+                                <span asp-validation-for="NameSurname" class="text-danger small"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <input asp-for="PhoneNumber" class="form-control form-control-lg rounded-3 py-3" placeholder="@_localization.Getkey("NumberPhone").Value" required />
+                                <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <input asp-for="Email" type="email" class="form-control form-control-lg rounded-3 py-3" placeholder="@_localization.Getkey("EmailAdress").Value" required />
+                                <span asp-validation-for="Email" class="text-danger small"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <textarea asp-for="Note" rows="4" class="form-control rounded-3 py-3" placeholder="@_localization.Getkey("AddInformation").Value"></textarea>
+                                <span asp-validation-for="Note" class="text-danger small"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <select asp-for="DestinationId" class="form-select form-select-lg rounded-3 py-3" asp-items="ViewBag.Destinations">
+                                    <option value="">@_localization.Getkey("SelectTour").Value</option>
+                                </select>
+                                <span asp-validation-for="DestinationId" class="text-danger small"></span>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-info btn-lg rounded-3 py-3 shadow-sm">@_localization.Getkey("MakeReservation").Value</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+

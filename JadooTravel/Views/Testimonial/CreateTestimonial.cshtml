@@ -1,0 +1,21 @@
+﻿@model JadooTravel.Dtos.TestimonialDtos.CreateTestimonialDto
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <h3>Yeni Referans Ekle</h3>
+    <form method="post">
+        <input type="text" asp-for="NameSurname" placeholder="İsim Soyisim Giriniz" class="form-control" />
+        <br />
+        <input type="text" asp-for="ImageUrl" placeholder="Fotoğraf URL Giriniz" class="form-control" />
+        <br />
+        <input type="text" asp-for="UserTitle" placeholder="Kullanıcı Başlığı" class="form-control" />
+        <br />
+        <textarea asp-for="Message" placeholder="Mesaj" class="form-control" rows="5" class="form-control"></textarea>
+        <br />
+        <button class="btn btn-primary">Ekle</button>
+    </form>
+</div>

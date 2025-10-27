@@ -1,0 +1,28 @@
+﻿@model JadooTravel.Dtos.ReservationDtos.UpdateReservationDto
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <h3>Rezervasyon Düzenle</h3>
+    <form method="post">
+        <input type="hidden" asp-for="ReservationId" />
+
+        <input type="text" asp-for="NameSurname" placeholder="Ad Soyad Giriniz" class="form-control" />
+        <br />
+        <input type="text" asp-for="PhoneNumber" placeholder="Telefon Numarası Giriniz" class="form-control" />
+        <br />
+        <input type="text" asp-for="Email" placeholder="Email Giriniz" class="form-control" />
+        <br />
+        <textarea asp-for="Note" placeholder="Not Giriniz" rows="5" class="form-control"></textarea>
+        <br />
+        <select asp-for="DestinationId" class="form-control" asp-items="ViewBag.Destinations">
+            <option value="">Tur Seçiniz</option>
+        </select>
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+        
+    </form>
+</div>

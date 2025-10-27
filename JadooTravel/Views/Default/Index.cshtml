@@ -1,0 +1,21 @@
+﻿@* Default index.cshtml *@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+@await Component.InvokeAsync("_DefaultHeadComponentPartial")
+<body>
+    <main class="main" id="top">
+        @await Component.InvokeAsync("_DefaultNavbarComponentPartial")
+        @await Component.InvokeAsync("_DefaultFeatureComponentPartial")
+        @await Component.InvokeAsync("_DefaultCategoryComponentPartial")
+        @await Component.InvokeAsync("_DefaultDestinationComponentPartial")
+        @await Component.InvokeAsync("_DefaultBookingStepsComponentPartial")
+        @await Component.InvokeAsync("_DefaultTestimonialComponentPartial")
+        @await Component.InvokeAsync("_DefaultAIComponentPartial")
+        @await Component.InvokeAsync("_DefaultFooterComponentPartial")
+    </main>
+    @await Component.InvokeAsync("_DefaultScriptComponentPartial")
+</body>
+</html>
